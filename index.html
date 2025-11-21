@@ -3,9 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="scoreboard">0:0</div>
+            <div class="versus-map">
+                <div class="user-fig">
+                    <p class="player">You</p>
+                    <img src="./img/scissors.PNG" alt="User choice">
+                </div>
+                <div class="versus-text">vs</div>
+                <div class="comp-fig">
+                    <p class="player">Computer</p>
+                    <img src="./img/scissors.PNG" alt="Computer choice">
+                </div>
+            </div>
+            <div class="user-selection">
+                <div>
+                    <button class="btn" data-image="rock">
+                        <img src="./img/rock.PNG" alt="Rock gesture for Rock Paper Scissors game">
+                    </button>
+                </div>
+                <div>
+                    <button class="btn" data-image="paper">
+                        <img src="./img/paper.PNG" alt="Paper gesture for Rock Paper Scissors game">
+                    </button>
+                </div>
+                <div>
+                    <button class="btn" data-image="scissors">
+                        <img src="./img/scissors.PNG" alt="Scissors gesture for Rock Paper Scissors game">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
