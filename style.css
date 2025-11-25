@@ -1,3 +1,7 @@
+/* -------------------------------------- */
+/* BASIC SETUP */
+/* -------------------------------------- */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,15 +9,15 @@
 }
 
 body {
-    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
     background-color: #f2f2f2;
 }
 
 .container {
-   max-width: 1140px;
-   width: 90%;
-   margin: 0 auto;
+    max-width: 1140px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .wrapper {
@@ -22,12 +26,17 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 1em 0;
     box-shadow: 0 0 15px #2c2c2c;
 }
 
+/* -------------------------------------- */
+/* SCOREBOARD */
+/* -------------------------------------- */
+
 .scoreboard {
-    font-size: 3em;
+    font-size: clamp(1.5rem, 5vw, 3em);
     font-weight: bold;
     color: #f2f2f2;
     background: rgba(255, 255, 255, 0.08);
@@ -36,21 +45,26 @@ body {
     backdrop-filter: blur(4px);
 }
 
+/* -------------------------------------- */
+/* VERSUS MAP */
+/* -------------------------------------- */
+
 .versus-map {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1em;
+    flex-wrap: wrap; 
 }
 
 .versus-text {
-    font-size: 4em;
+    font-size: clamp(2rem, 8vw, 4em);
     color: #f2f2f2;
     text-transform: uppercase;
 }
 
 .player {
-    font-size: 2em;
+    font-size: clamp(1rem, 4vw, 2em);
     letter-spacing: 1.5px;
     text-align: center;
     color: #fff;
@@ -62,15 +76,20 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 20em;
+    width: 40%;
+    max-width: 12em;
     height: auto;
 }
 
 .user-fig img,
 .comp-fig img {
-    width: 12em;
+    width: 100%;
     visibility: hidden;
 }
+
+/* -------------------------------------- */
+/* USER SELECTION BUTTONS */
+/* -------------------------------------- */
 
 .user-selection {
     display: flex;
@@ -79,6 +98,16 @@ body {
     background: #1a1a1a;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(141, 141, 142, 0.2);
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+.btn {
+    width: 30%;
+    max-width: 7em;
+    border: 0;
+    background: none;
+    cursor: pointer;
 }
 
 .btn img {
@@ -90,9 +119,36 @@ body {
     transform: scale(1.2);
 }
 
-.btn {
-    width: 7em;
-    border: 0;
-    background: none;
-    cursor: pointer;
+/* -------------------------------------- */
+/* MEDIA QUERIES */
+/* -------------------------------------- */
+
+@media (max-width: 768px) {
+    .versus-map {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+
+    .user-fig,
+    .comp-fig {
+        width: 60%;
+    }
+
+    .versus-text {
+        font-size: clamp(1.5rem, 6vw, 3em);
+    }
+}
+
+@media (max-width: 480px) {
+    .user-selection {
+        gap: 0.5em;
+    }
+
+    .btn {
+        width: 40%;
+    }
+
+    .player {
+        font-size: clamp(0.9rem, 3vw, 1.5em);
+    }
 }
