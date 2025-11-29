@@ -6,11 +6,18 @@ const buttons = document.querySelectorAll('.btn');
 let userScore = 0;
 let computerScore = 0;
 
+// Determine the correct file extension based on the choice
+const getFileExtension = (choice) => {
+    if (choice === 'rock') return 'png';      
+    return 'PNG';                            
+}
+
 // Randomly returns 'rock', 'paper', or 'scissors' for the computer's move
 const getComputerChoice = () => {
     const choices = ['rock', 'paper', 'scissors'];
     const choice = choices[Math.floor(Math.random() * choices.length)];
-    computerFigure.src = `./img/${choice}.PNG`;
+    const extension = getFileExtension(choice);
+    computerFigure.src = `./img/${choice}.${extension}`;
     computerFigure.style.visibility = 'visible';
     return choice;
 }
@@ -20,7 +27,9 @@ const determineWinner = (userChoice, computerChoice) => {
     if (userChoice === computerChoice) return 'tie';
 
     if (
-        (userChoice === 'rock' && computerChoice === 'scissors') || (userChoice === 'paper' && computerChoice === 'rock') || (userChoice === 'scissors' && computerChoice === 'paper')
+        (userChoice === 'rock' && computerChoice === 'scissors') ||
+        (userChoice === 'paper' && computerChoice === 'rock') ||
+        (userChoice === 'scissors' && computerChoice === 'paper')
     ) {
         return 'user';
     }
@@ -40,7 +49,8 @@ const resetGame = () => {
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         const userChoice = button.dataset.image;
-        userFigure.src = `./img/${userChoice}.PNG`;
+        const userExtension = getFileExtension(userChoice);
+        userFigure.src = `./img/${userChoice}.${userExtension}`;
         userFigure.style.visibility = "visible";
 
         const computerChoice = getComputerChoice();
