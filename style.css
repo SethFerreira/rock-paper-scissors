@@ -43,6 +43,7 @@ body {
     padding: 0.5em 2em;
     border-radius: 10px;
     backdrop-filter: blur(4px);
+    margin-bottom: 30px;
 }
 
 /* -------------------------------------- */
